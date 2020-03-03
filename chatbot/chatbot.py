@@ -20,7 +20,7 @@ class MainHandler(tornado.web.RequestHandler):
         chatbot = ChatBot(
             "Tocayo",
             storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
-            database_uri='mongodb://localhost:27017/',
+            database_uri='mongodb://192.168.20.50:27017/',
             database='chatterbot',
             logic_adapters=[
                 {
