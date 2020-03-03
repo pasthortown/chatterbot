@@ -1,0 +1,1 @@
+docker run -it -d --name chatterbot -v /home/chatterbot/chatbot:/chatbot -p 5000:5000 pasthortown/chatterbot:latest
