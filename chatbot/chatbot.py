@@ -6,7 +6,6 @@ import tornado.web
 from tornado.escape import json_encode, json_decode
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
-from adapters.knowledge_adapter import KnowledgeAdapter
 from adapters.date_time_adapter import DateTimeAdapter
 
 class MainHandler(tornado.web.RequestHandler):
