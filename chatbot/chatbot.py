@@ -14,12 +14,12 @@ class MainHandler(tornado.web.RequestHandler):
         self.set_header("Access-Control-Allow-Headers", "x-requested-with")
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
     def get(self):
-        self.write('Saludos, soy Tocayo.')
+        self.write('Saludos.')
     def post(self):
         chatbot = ChatBot(
-            "Tocayo",
+            "Siturin-Chatbot",
             storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
-            database_uri='mongodb://192.168.20.50:27017/',
+            database_uri='mongodb://localhost:27017/',
             database='chatterbot',
             logic_adapters=[
                 {
