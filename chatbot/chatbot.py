@@ -19,7 +19,7 @@ class MainHandler(tornado.web.RequestHandler):
         chatbot = ChatBot(
             "Siturin-Chatbot",
             storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
-            database_uri='mongodb://localhost:27017/',
+            database_uri='mongodb://mongo:27017/',
             database='chatterbot',
             logic_adapters=[
                 {
