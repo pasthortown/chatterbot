@@ -55,16 +55,15 @@ class MainHandler(tornado.web.RequestHandler):
             respuesta = "Disculpa, no te he entendido bien. ¿Puedes decirmelo con mayor claridad?."
         self.write(json_encode({'data': respuesta}))
         
-class Application(tornado.web.Application):
-    def __init__(self):
-        handlers = [
-            (r"/?", MainHandler)
-        ]
-        tornado.web.Application.__init__(self, handlers)
-
 def main():
-    app = Application()
-    app.listen(5000)
+    app = tornado.web.Application([
+        (r"/?", MainHandler),
+    ])
+    http_server = tornado.httpserver.HTTPServer(app, ssl_options={
+        "certfile": "/ssl_certificates/wildcard.chained.crt",
+        "keyfile": "/ssl_keys/privatekey.key",
+    })
+    http_server.listen(5000)
     IOLoop.instance().start()
 
 if __name__ == '__main__':
